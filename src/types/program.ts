@@ -11,5 +11,5 @@ export interface Program {
   mediaType: "image" | "video";
   videoUrl?: string;
   gallery?: Array<{ src: string; alt: string }>;
-  stat: { value: string; label: string };
+  stat?: { value: string; label: string };
 }

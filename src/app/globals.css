@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forest: #123d2e;
-  --color-ink: #17251f;
-  --color-cream: #fbf8f1;
-  --color-mist: #edf2ed;
-  --color-sage: #b9d4c5;
-  --color-clay: #c96645;
-  --color-sun: #f2d993;
-  --color-muted: #65726c;
+  --color-forest: #244a39;
+  --color-ink: #242d28;
+  --color-cream: #fcfaf6;
+  --color-mist: #eef3eb;
+  --color-sage: #d2e3bc;
+  --color-clay: #704489;
+  --color-sun: #e9d9ae;
+  --color-muted: #59645d;
   --font-display: Georgia, "Times New Roman", serif;
 }
 
 :root {
   color-scheme: light;
-  --swiper-theme-color: #c96645;
+  --swiper-theme-color: #704489;
 }
 
 * {
@@ -27,16 +27,15 @@ html {
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  background: #fbf8f1;
-  color: #17251f;
+  background: #fcfaf6;
+  color: #242d28;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: #b9d4c5;
-  color: #123d2e;
+  background: #d2e3bc;
+  color: #244a39;
 }
 
 a, button, input, textarea {
@@ -80,22 +79,22 @@ button, a {
 }
 
 .button:focus-visible {
-  outline: 2px solid #c96645;
+  outline: 2px solid #704489;
   outline-offset: 3px;
 }
 
 .button-primary {
-  background: #c96645;
+  background: #704489;
   color: white;
 }
 
 .button-primary:hover {
-  background: #ad4f32;
+  background: #573169;
 }
 
 .button-light {
-  background: #fbf8f1;
-  color: #123d2e;
+  background: #fcfaf6;
+  color: #244a39;
 }
 
 .button-light:hover {
@@ -114,12 +113,12 @@ button, a {
 
 .button-outline {
   border-color: rgb(18 61 46 / 0.2);
-  color: #123d2e;
+  color: #244a39;
 }
 
 .button-outline:hover {
-  border-color: #123d2e;
-  background: #123d2e;
+  border-color: #244a39;
+  background: #244a39;
   color: white;
 }
 
@@ -140,14 +139,14 @@ button, a {
   left: 0;
   height: 2px;
   content: "";
-  background: #c96645;
+  background: #704489;
   transform: scaleX(0);
   transition: transform 180ms ease;
 }
 
 .nav-link:hover,
 .nav-link-active {
-  color: #123d2e;
+  color: #244a39;
 }
 
 .nav-link:hover::after,
@@ -156,7 +155,7 @@ button, a {
 }
 
 .nav-link:focus-visible {
-  outline: 2px solid #c96645;
+  outline: 2px solid #704489;
   outline-offset: 4px;
 }
 
@@ -167,9 +166,9 @@ button, a {
   z-index: 100;
   transform: translateY(-160%);
   border-radius: 999px;
-  background: #fbf8f1;
+  background: #fcfaf6;
   padding: 0.75rem 1rem;
-  color: #123d2e;
+  color: #244a39;
   font-weight: 800;
   box-shadow: 0 8px 30px rgb(0 0 0 / 0.2);
   transition: transform 150ms ease;
@@ -196,7 +195,7 @@ button, a {
   width: 0.55rem;
   height: 0.55rem;
   margin: 0 !important;
-  background: #123d2e;
+  background: #244a39;
   opacity: 0.22;
   transition: width 250ms ease, opacity 250ms ease;
 }
@@ -204,12 +203,12 @@ button, a {
 .program-pagination .swiper-pagination-bullet-active {
   width: 2rem;
   border-radius: 999px;
-  background: #c96645;
+  background: #704489;
   opacity: 1;
 }
 
 .program-pagination .swiper-pagination-bullet:focus-visible {
-  outline: 2px solid #c96645;
+  outline: 2px solid #704489;
   outline-offset: 3px;
 }
 
@@ -220,25 +219,25 @@ button, a {
   place-items: center;
   border: 1px solid rgb(18 61 46 / 0.18);
   border-radius: 999px;
-  color: #123d2e;
+  color: #244a39;
   font-size: 1.1rem;
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
 }
 
 .carousel-button:hover {
-  border-color: #123d2e;
-  background: #123d2e;
+  border-color: #244a39;
+  background: #244a39;
   color: white;
 }
 
 .carousel-button:focus-visible {
-  outline: 2px solid #c96645;
+  outline: 2px solid #704489;
   outline-offset: 3px;
 }
 
 .rich-copy {
   max-width: 45rem;
-  color: #65726c;
+  color: #59645d;
   font-size: 1.125rem;
   line-height: 1.85;
 }
@@ -249,7 +248,7 @@ button, a {
 
 .field-label {
   display: block;
-  color: #17251f;
+  color: #242d28;
   font-size: 0.83rem;
   font-weight: 800;
 }
@@ -262,7 +261,7 @@ button, a {
   border-radius: 0.85rem;
   background: white;
   padding: 0.9rem 1rem;
-  color: #17251f;
+  color: #242d28;
   font: inherit;
   font-weight: 450;
   outline: none;
@@ -274,7 +273,7 @@ button, a {
 }
 
 .field:focus {
-  border-color: #c96645;
+  border-color: #704489;
   box-shadow: 0 0 0 3px rgb(201 102 69 / 0.13);
 }
 
@@ -297,4 +296,46 @@ button, a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Brand palette lives in @theme above. Layout primitives for CMS-ready sections. */
+:where(a, button, input, textarea):focus-visible { outline: 3px solid var(--color-clay); outline-offset: 4px; }
+button { cursor: pointer; }
+.intro-section { border-bottom: 1px solid rgb(36 74 57 / 0.12); background: #f2f0f4; }
+.founder-carousel { min-width: 0; }
+.founder-carousel .swiper { border-radius: 1.5rem; background: white; border: 1px solid rgb(36 74 57 / 0.12); }
+.founder-carousel .swiper-slide { height: auto; }
+.founder-slide { display: grid; height: 100%; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.founder-media { position: relative; min-width: 0; min-height: 510px; margin: 0; background: #e7e9e3; }
+.founder-media > img { padding-bottom: 3rem; }
+.founder-media-video { display: flex; align-items: center; background: #202a24; padding-bottom: 3rem; }
+.founder-media video { aspect-ratio: 16 / 9; max-height: 100%; }
+.founder-media figcaption { position: absolute; bottom: 0; left: 0; width: 100%; min-height: 3rem; padding: 0.9rem 1.25rem; background: var(--color-forest); color: white; font-size: 0.8rem; line-height: 1.4; }
+.founder-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(1.5rem, 3.5vw, 3.5rem); }
+.carousel-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 1rem; }
+.founder-dot { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; }
+.founder-dot span { width: 8px; height: 8px; border-radius: 8px; background: #a1aaa2; transition: width 200ms; }
+.founder-dot[aria-current] span { width: 26px; background: var(--color-clay); }
+.carousel-toggle { min-height: 44px; padding: 0.4rem 0.65rem; font-size: 0.85rem; font-weight: 700; color: var(--color-forest); border-radius: 1rem; }
+.content-with-donate { display: grid; grid-template-columns: minmax(0, 1fr) 290px; align-items: start; gap: clamp(2rem, 6vw, 5rem); }
+.donate-panel { position: sticky; top: 7rem; padding: 2rem; border-radius: 1.5rem; background: var(--color-forest); color: white; }
+.donate-symbol { display: block; margin-bottom: 2rem; color: var(--color-sage); font-size: 5rem; font-family: Georgia, serif; line-height: 1; }
+@media (max-width: 1023px) {
+  .content-with-donate { grid-template-columns: minmax(0, 1fr); }
+  .donate-panel { position: static; width: 100%; padding: 2rem; }
+  .donate-panel .button { width: auto; min-width: 180px; }
+  .donate-symbol { font-size: 3rem; margin-bottom: 1.5rem; }
+}
+@media (max-width: 767px) {
+  .founder-slide { grid-template-columns: minmax(0, 1fr); }
+  .founder-media { min-height: 0; height: 370px; }
+  .founder-media-video { height: auto; min-height: 245px; }
+  .founder-copy { min-height: 365px; padding: 1.5rem; }
+  .founder-copy h3 { font-size: 2rem; }
+  .founder-copy p { line-height: 1.8; }
+}
+@media (max-width: 359px) {
+  .founder-dot { width: 36px; }
+  .carousel-toolbar .carousel-button { width: 44px; height: 44px; }
+  .carousel-toggle { padding-inline: 0.25rem; }
 }

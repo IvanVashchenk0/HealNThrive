@@ -1,49 +1,37 @@
-# HopeBridge Foundation — Version 0.1
+# HealNThrive
 
-A polished, responsive nonprofit prototype built with Next.js App Router, React, TypeScript, Tailwind CSS, and Swiper. Program content is centralized and typed so it can later be replaced by Builder.io CMS queries without changing the page or component architecture.
+An existing Next.js App Router / React / TypeScript / Tailwind / Swiper prototype, updated with the organization's supplied materials. No Builder.io integration or payment service is installed.
 
-## Run locally
+## Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000. Validate with `npm run lint`, `npm run typecheck`, and `npm run build`.
 
-Production checks:
+## Edit content
 
-```bash
-npm run typecheck
-npm run lint
-npm run build
-```
+- `src/data/siteContent.ts`: organization copy, navigation, mission, contact availability, and donation configuration.
+- `src/data/founder.ts`: typed founder slides, YouTube embed URL, captions, and image descriptions.
+- `src/data/events.ts`: typed event records and empty-state copy. Add only confirmed events, marking past events explicitly.
+- `src/data/programs.ts`: source-supported mission priorities and goals, with availability clearly distinguished from active services.
+- `src/app/globals.css`: centralized brand colors in `@theme` and responsive layout styles.
+- `public/media/`: selected, optimized production assets. The original `HealNThrive_materials/` stays ignored and is never required at runtime.
 
-## Editing guide
+## Pending content
 
-- **Program content and program images:** `src/data/programs.ts`
-- **Organization name, tagline, contact details, impact stats, and navigation:** `src/data/site.ts`
-- **Homepage sections:** `src/app/page.tsx`
-- **Colors and global visual tokens:** the `@theme` block in `src/app/globals.css`
-- **Generated hero image:** `public/images/hopebridge-hero.png`
-- **Shared header and footer:** `src/components/Navbar.tsx` and `src/components/Footer.tsx`
+Set `siteContent.donation.href` to the verified donation URL. It currently leads to the honest giving-availability section at `/get-involved#donate`. Update that section's availability text when giving is available.
 
-## Routes
+No verified email, phone, address, office hours, social links, or contact endpoint was supplied. The retained contact form is explicitly a preview: it sends and stores nothing. Supply verified contact details and a real submission handler before enabling messaging.
 
-- `/`
-- `/about`
-- `/programs`
-- `/programs/[slug]` (generated from program data)
-- `/impact`
-- `/get-involved`
-- `/contact`
+The founder slide embeds the [supplied YouTube feature](https://www.youtube.com/watch?v=g0a5GG2ph_g) through `VideoEmbed`. It starts muted automatically, plays inline, and loops; visitors can enable sound using YouTube's controls. The carousel holds this slide so playback is not interrupted. Navigation removes the player, and returning starts it again. “Play slideshow” advances to the photos and resumes carousel autoplay. Browser settings may still restrict automatic playback. The local MP4 preview and poster have been removed; change `mediaSrc` in `src/data/founder.ts` to update the YouTube embed URL.
 
-## Builder.io readiness
+See [the materials and implementation report](docs/materials-report.md) for provenance, omissions, asset mapping, and validation.
 
-Visual components accept clean props and content lives outside them. A future integration can replace the data modules with typed Builder.io fetchers, then register components such as `ProgramCard`, `ImpactStats`, `CTASection`, and `MediaGallery` as custom components. No CMS dependency is included in this prototype.
+## Components and routes
 
-## Prototype notes
+The homepage uses `FounderCarousel`, `MissionSection`, `EventsSection` / `EventCard`, and `DonateCTA`, all accepting serializable content props for future Builder editing. Existing `SectionHeading`, `CTASection`, `PageHero`, `ProgramCard`, navigation, footer, and contact form were reused. `MediaGallery`, `VideoEmbed`, and `ProgramCarousel` remain available for future verified content.
 
-All organization details, statistics, people, contact details, and stories are fictional placeholders. The contact form displays a local success state and sends no data. Donation buttons are placeholders; there is no payment flow.
-
-The custom hero visual was generated for this prototype. Remaining demo photography is loaded from Unsplash through the allowlist in `next.config.ts`.
+Existing About, Our Work, Get Involved, and Contact routes remain. Source-backed focus pages are generated under `/programs/[slug]`. `/impact` redirects to `/programs` because no verified impact counts were supplied. Former fictional program slugs now return 404. The old generated image in `public/images/` is an unused legacy prototype asset.

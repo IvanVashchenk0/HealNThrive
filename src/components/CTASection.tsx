@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteContent } from "@/data/siteContent";
 
 interface CTASectionProps {
   eyebrow?: string;
@@ -12,8 +13,8 @@ interface CTASectionProps {
 
 export function CTASection({
   eyebrow = "Your part matters",
-  title = "Change grows when we show up together.",
-  description = "Share your time, make a gift, or start a partnership. There is a meaningful place for you in this work.",
+  title = siteContent.involvement.title,
+  description = siteContent.involvement.intro,
   primaryLabel = "Get involved",
   primaryHref = "/get-involved",
   secondaryLabel = "Talk with our team",

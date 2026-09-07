@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "swiper/css";
 import "swiper/css/pagination";
 import "@/app/globals.css";
+import { siteContent } from "@/data/siteContent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { default: "HopeBridge Foundation", template: "%s | HopeBridge Foundation" },
-  description: "Building stronger communities, one opportunity at a time.",
+  title: { default: siteContent.name, template: `%s | ${siteContent.name}` },
+  description: siteContent.intro,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

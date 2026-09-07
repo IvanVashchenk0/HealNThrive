@@ -1,48 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
-import { siteContent } from "@/data/site";
-
+import { siteContent } from "@/data/siteContent";
 export function Hero() {
-  return (
-    <section className="relative isolate min-h-[calc(100svh-5.25rem)] overflow-hidden bg-forest text-white">
-      <Image
-        src="/images/hopebridge-hero.png"
-        alt="Neighbors and volunteers planting a community garden together"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[64%_center]"
-      />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,50,38,0.98)_0%,rgba(15,50,38,0.82)_35%,rgba(15,50,38,0.2)_72%,rgba(15,50,38,0.04)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forest/35 to-transparent" />
-      <div className="page-shell relative flex min-h-[calc(100svh-5.25rem)] items-center py-20">
-        <div className="max-w-2xl">
-          <p className="eyebrow text-sage">Together, hope takes root</p>
-          <h1 className="mt-5 text-balance font-display text-5xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-[5.25rem]">
-            Stronger communities start with opportunity.
-          </h1>
-          <p className="mt-7 max-w-xl text-lg leading-8 text-white/78 sm:text-xl">
-            {siteContent.mission} <span className="hidden sm:inline">One neighborhood, one family, one possibility at a time.</span>
-          </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Link href="/get-involved" className="button button-light justify-center">Support Our Mission <span aria-hidden="true">→</span></Link>
-            <Link href="/programs" className="button button-ghost-light justify-center">Explore Our Work</Link>
-          </div>
-          <div className="mt-12 flex items-center gap-4 text-sm text-white/65">
-            <span className="flex -space-x-2" aria-hidden="true">
-              {[
-                "bg-[#e9b48d]",
-                "bg-[#b9d4c5]",
-                "bg-[#cf8568]",
-              ].map((color) => <span key={color} className={`size-9 rounded-full border-2 border-forest ${color}`} />)}
-            </span>
-            <span><strong className="text-white">800+ volunteers</strong><br />showing up with heart</span>
-          </div>
-        </div>
-      </div>
-      <div className="absolute bottom-7 right-6 hidden items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-white/65 md:flex">
-        <span className="h-px w-12 bg-white/45" /> Scroll to explore
-      </div>
-    </section>
-  );
+  return <section className="intro-section"><div className="page-shell grid gap-8 py-12 md:grid-cols-[1.2fr_1fr] md:items-end md:py-16">
+    <div><p className="eyebrow text-clay">{siteContent.name} · {siteContent.location}</p><h1 className="mt-5 max-w-xl font-display text-5xl leading-[1.04] tracking-[-0.04em] text-forest sm:text-6xl lg:text-7xl">{siteContent.heroTitle.opening}<br />{siteContent.heroTitle.closing} <em className="text-clay">{siteContent.heroTitle.emphasis}</em></h1></div>
+    <div className="max-w-lg md:pb-2"><p className="text-lg leading-8 text-muted">{siteContent.intro}</p><div className="mt-6 flex flex-wrap items-center gap-5"><Link href="/contact" className="button button-primary">Connect with us <span aria-hidden="true">↗</span></Link><a href="#founder" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-forest">Meet Kalisha <span aria-hidden="true">↓</span></a></div></div>
+  </div></section>;
 }

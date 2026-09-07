@@ -55,10 +55,10 @@ export function ProgramCarousel({ items }: { items: Program[] }) {
                   {program.mediaType === "video" && <span className="flex items-center gap-2 text-sm font-bold text-white/80"><span className="grid size-9 place-items-center rounded-full border border-white/35" aria-hidden="true">▶</span> Includes video</span>}
                 </div>
               </div>
-              <div className="absolute bottom-7 right-7 hidden rounded-xl bg-cream/95 px-5 py-4 text-forest shadow-xl sm:block">
+              {program.stat && <div className="absolute bottom-7 right-7 hidden rounded-xl bg-cream/95 px-5 py-4 text-forest shadow-xl sm:block">
                 <strong className="block font-display text-2xl">{program.stat.value}</strong>
                 <span className="text-xs font-bold uppercase tracking-[0.12em]">{program.stat.label}</span>
-              </div>
+              </div>}
             </article>
           </SwiperSlide>
         ))}
