@@ -9,3 +9,20 @@ out
 
 # Local source materials are intentionally kept outside the public prototype.
 HealNThrive_materials/
+
+# Dependencies and build output
+node_modules/
+.next/
+
+# Local source/reference materials
+HealNThrive_materials/
+
+# Build/cache files
+tsconfig.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
