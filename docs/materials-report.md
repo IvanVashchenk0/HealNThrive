@@ -38,7 +38,7 @@ The source MP4 is approximately 160 MiB / 167 MB and 14:32 long. The user subseq
 
 No event names, dates, locations, flyers, descriptions, or confidently identifiable event photos were found. Photo filenames were not treated as event evidence. `src/data/events.ts` therefore contains an empty typed array; the Events section displays a clear empty state. Reusable cards are ready for confirmed past or upcoming events.
 
-The donation link is centralized at `siteContent.donation.href` and now points to the user-supplied GoFundMe campaign. All donation links use it; the old coming-soon message is removed. The site itself collects no payment. Contact details and the submission backend are pending; the existing form is explicitly labeled as a preview before interaction and after submission. Partner names are “coming soon,” matching the supplied document. No external font files or font specification were supplied; the site uses Georgia and system sans-serif.
+The donation link is centralized at `siteContent.donation.href` and now points to the user-supplied GoFundMe campaign. All donation links use it; the old coming-soon message is removed. The site itself collects no payment. Contact now uses a direct email CTA with the user-requested placeholder address centralized at `siteContent.contact.email`; the form and simulated submission behavior have been removed. No contact backend is used. Partner names are “coming soon,” matching the supplied document. No external font files or font specification were supplied; the site uses Georgia and system sans-serif.
 
 ## Implementation
 

@@ -23,9 +23,10 @@ export const siteContent = {
   contact: {
     title: "Let’s connect.",
     intro: "For survivors and families, and for those who want to help build a community of support.",
-    availability: "Our contact details will be shared here soon. The form below is a preview and does not send messages.",
-    previewNotice: "Preview only — this form does not send or save your message.",
-    previewResult: "Your form is complete. No message has been sent or saved. Contact details will be available here soon.",
+    supportingText: "Have a question, partnership idea, or want to get involved? Reach out directly and we’ll get back to you.",
+    email: "KalishaPettus@healandthrivechicago.org",
+    emailSubject: "HealNThrive Website Inquiry",
+    emailLabel: "Email HealNThrive",
   },
   donation: {
     eyebrow: "Be part of the healing",

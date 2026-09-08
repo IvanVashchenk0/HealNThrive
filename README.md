@@ -25,7 +25,7 @@ Open http://localhost:3000. Validate with `npm run lint`, `npm run typecheck`, a
 
 `siteContent.donation.href` contains the organization-supplied GoFundMe link. Navigation, donation panels, footer, and the giving page all use this destination.
 
-No verified email, phone, address, office hours, social links, or contact endpoint was supplied. The retained contact form is explicitly a preview: it sends and stores nothing. Supply verified contact details and a real submission handler before enabling messaging.
+The Contact page uses a direct email CTA. Replace `siteContent.contact.email` in `src/data/siteContent.ts` (currently `PLACEHOLDER_EMAIL@example.com`) with the real address; both the visible address and mailto destination update together. The subject is “HealNThrive Website Inquiry.” No contact backend, form submission, or database is used. No verified phone, address, office hours, or social links were supplied.
 
 The homepage opens with Meet the Founder, followed by the retained “Turning survival into purpose” hero, Strong Steps, and the mission/events area. Meet the Founder is the page’s `h1`; the relocated hero and slide titles use `h2`.
 
@@ -47,6 +47,6 @@ See [the materials and implementation report](docs/materials-report.md) for prov
 
 ## Components and routes
 
-The homepage uses `FounderCarousel`, `MissionSection`, `EventsSection` / `EventCard`, and `DonateCTA`, all accepting serializable content props for future Builder editing. Existing `SectionHeading`, `CTASection`, `PageHero`, `ProgramCard`, navigation, footer, and contact form were reused. `MediaGallery`, `VideoEmbed`, and `ProgramCarousel` remain available for future verified content.
+The homepage uses `FounderCarousel`, `MissionSection`, `EventsSection` / `EventCard`, and `DonateCTA`, all accepting serializable content props for future Builder editing. Existing `SectionHeading`, `CTASection`, `PageHero`, `ProgramCard`, navigation, and footer were reused. The Contact page uses a server-rendered email link. `MediaGallery`, `VideoEmbed`, and `ProgramCarousel` remain available for future verified content.
 
 Existing About, Our Work, Get Involved, and Contact routes remain. Source-backed focus pages are generated under `/programs/[slug]`. `/impact` redirects to `/programs` because no verified impact counts were supplied. Former fictional program slugs now return 404. The old generated image in `public/images/` is an unused legacy prototype asset.
