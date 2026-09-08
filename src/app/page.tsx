@@ -14,13 +14,13 @@ import { strongSteps } from "@/data/strongSteps";
 export default function HomePage() {
   return (
     <>
-      <Hero />
       <section id="founder" className="scroll-mt-24 pt-8">
-        <div className="page-shell mb-8">
-          <SectionHeading eyebrow="The person behind the purpose" title={siteContent.founderHeading} description={siteContent.founderIntro} />
+        <div className="founder-shell mb-6">
+          <SectionHeading as="h1" eyebrow="The person behind the purpose" title={siteContent.founderHeading} description={siteContent.founderIntro} />
         </div>
         <FounderCarousel slides={founderSlides} />
       </section>
+      <Hero />
       <StrongStepsSection content={strongSteps} />
       <div className="bg-mist/70 py-14 sm:py-20">
         <div className="page-shell content-with-donate">

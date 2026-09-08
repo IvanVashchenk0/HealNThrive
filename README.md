@@ -1,4 +1,4 @@
-# HealNThrive
+# Heal & Thrive Chicago
 
 An existing Next.js App Router / React / TypeScript / Tailwind / Swiper prototype, updated with the organization's supplied materials. No Builder.io integration or payment service is installed.
 
@@ -14,6 +14,7 @@ Open http://localhost:3000. Validate with `npm run lint`, `npm run typecheck`, a
 ## Edit content
 
 - `src/data/siteContent.ts`: organization copy, navigation, mission, contact availability, and donation configuration.
+- `src/data/strongSteps.ts`: Strong Steps mission, two training levels, and monthly walking-clinic outline from the supplied document.
 - `src/data/founder.ts`: typed founder slides, YouTube embed URL, captions, and image descriptions.
 - `src/data/events.ts`: typed event records and empty-state copy. Add only confirmed events, marking past events explicitly.
 - `src/data/programs.ts`: source-supported mission priorities and goals, with availability clearly distinguished from active services.
@@ -22,11 +23,25 @@ Open http://localhost:3000. Validate with `npm run lint`, `npm run typecheck`, a
 
 ## Pending content
 
-Set `siteContent.donation.href` to the verified donation URL. It currently leads to the honest giving-availability section at `/get-involved#donate`. Update that section's availability text when giving is available.
+`siteContent.donation.href` contains the organization-supplied GoFundMe link. Navigation, donation panels, footer, and the giving page all use this destination.
 
 No verified email, phone, address, office hours, social links, or contact endpoint was supplied. The retained contact form is explicitly a preview: it sends and stores nothing. Supply verified contact details and a real submission handler before enabling messaging.
 
-The founder slide embeds the [supplied YouTube feature](https://www.youtube.com/watch?v=g0a5GG2ph_g) through `VideoEmbed`. It starts muted automatically, plays inline, and loops; visitors can enable sound using YouTube's controls. The carousel holds this slide so playback is not interrupted. Navigation removes the player, and returning starts it again. “Play slideshow” advances to the photos and resumes carousel autoplay. Browser settings may still restrict automatic playback. The local MP4 preview and poster have been removed; change `mediaSrc` in `src/data/founder.ts` to update the YouTube embed URL.
+The homepage opens with Meet the Founder, followed by the retained “Turning survival into purpose” hero, Strong Steps, and the mission/events area. Meet the Founder is the page’s `h1`; the relocated hero and slide titles use `h2`.
+
+The founder slide embeds the [supplied YouTube feature](https://www.youtube.com/watch?v=g0a5GG2ph_g&t=400s), starting muted at **6:40**. The YouTube IFrame API advances the carousel after **ten accumulated seconds of playback**, excluding buffering, pauses, disabled rotation, and hidden-tab time. Photo slides rotate every eight seconds. Returning to the video creates a new player and countdown at 6:40. Play/pause, sound, carousel navigation, blocked-autoplay recovery, and retry/YouTube fallback controls are provided. Player instances and timers are removed when inactive. Duration is configured in `src/data/founder.ts`.
+
+At desktop widths of 1200px and above, the video fills the screen width and viewport height below navigation using a centered, enlarged 16:9 iframe with accepted edge cropping. Controls stay visible in the site’s toolbar. Below 1200px, the entire 16:9 video is shown without cropping or added height. The description sits below the video. Any black bars already present in the original footage are part of the source video.
+
+The founder heading, video description, and carousel navigation use `min(94vw, 1500px)` content shells. Photo slides span the viewport with a large opaque text panel on the left and the full photograph on the right. Desktop photo width follows the original 3:4 proportions at a target height of `clamp(640px, calc(100svh - 5.25rem), 960px)`; image height stays automatic without cropping or media padding. Below 1024px, the full-width photograph stacks above its text. The full subject remains visible, including Kalisha’s hands and prosthetic leg. Swiper adjusts to the active slide’s natural height.
+
+Run the playback-clock regression tests with Node 22.18 or newer:
+
+```bash
+node --experimental-strip-types --test tests/playback-clock.test.mjs
+```
+
+The soft green announcement banner uses the organization's requested “501(c)(3) certified”, “Founder-led”, and “Community healing” copy from `siteContent.banner`. It includes a pause control and becomes static for reduced-motion preferences.
 
 See [the materials and implementation report](docs/materials-report.md) for provenance, omissions, asset mapping, and validation.
 
