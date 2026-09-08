@@ -21,8 +21,7 @@ export function FounderCarousel({ slides }: { slides: FounderSlide[] }) {
   const reducedMotion = useSyncExternalStore(subscribeMotion, () => window.matchMedia(motionQuery).matches, () => true);
   const [paused, setPaused] = useState(false);
   const [active, setActive] = useState(0);
-  const videoActive = slides[active]?.mediaType === "youtube";
-  const running = !paused && !reducedMotion && !videoActive;
+  const running = !paused && !reducedMotion;
 
   useEffect(() => {
     if (running) swiper.current?.autoplay.start();
@@ -49,8 +48,8 @@ export function FounderCarousel({ slides }: { slides: FounderSlide[] }) {
           navigate(event.key === "ArrowRight" ? "next" : "prev");
         }
       }}>
-      <Swiper modules={[Autoplay, A11y]} slidesPerView={1} loop={slides.length > 1} speed={reducedMotion ? 0 : 550}
-        autoplay={{ delay: 7000, disableOnInteraction: true, pauseOnMouseEnter: true }}
+      <Swiper modules={[Autoplay, A11y]} slidesPerView={1} loop={slides.length > 1} speed={reducedMotion ? 0 : 550} autoHeight
+        autoplay={{ delay: 8000, disableOnInteraction: true, pauseOnMouseEnter: true }}
         onSwiper={(instance) => { swiper.current = instance; if (!running) instance.autoplay.stop(); }}
         onSliderFirstMove={stop}
         onSlideChange={(instance) => {
@@ -60,16 +59,16 @@ export function FounderCarousel({ slides }: { slides: FounderSlide[] }) {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             {({ isActive }) => (
-              <article className="founder-slide" inert={!isActive} aria-hidden={!isActive}>
-                <figure className={`founder-media ${slide.mediaType === "youtube" ? "founder-media-video" : ""}`}>
+              <article className={`founder-slide founder-slide-${slide.mediaType}`} inert={!isActive} aria-hidden={!isActive}>
+                <figure aria-label={slide.caption} className={`founder-media ${slide.mediaType === "youtube" ? "founder-media-video" : ""}`}>
                   {slide.mediaType === "youtube" ? (
                     // Unmount inactive players so hidden slides cannot keep playing.
                     // Returning to this slide starts the muted YouTube video again.
                     isActive ? <VideoEmbed url={slide.mediaSrc} title={slide.alt} autoPlay /> : null
-                  ) : <Image src={slide.mediaSrc} alt={slide.alt} fill sizes="(max-width: 767px) 100vw, 55vw" className="object-contain" />}
-                  <figcaption>{slide.caption}</figcaption>
+                  ) : <Image src={slide.mediaSrc} alt={slide.alt} fill sizes="(max-width: 767px) 100vw, 690px" className="founder-photo" />}
                 </figure>
                 <div className="founder-copy">
+                  <p className="founder-credit">{slide.caption}</p>
                   <p className="eyebrow text-clay">{slide.eyebrow}</p>
                   <h3 className="mt-5 font-display text-4xl leading-[1.12] tracking-tight lg:text-5xl">{slide.title}</h3>
                   <p className="mt-6 text-base leading-8 text-muted lg:text-lg">{slide.text}</p>
@@ -86,8 +85,6 @@ export function FounderCarousel({ slides }: { slides: FounderSlide[] }) {
         </div>
         <div className="flex items-center gap-2">
           {!reducedMotion && <button type="button" className="carousel-toggle" onClick={() => {
-            // Explicitly starting the slideshow moves past the held video slide.
-            if (!running && videoActive) swiper.current?.slideNext();
             setPaused(running);
           }} aria-label={running ? "Pause slideshow" : "Play slideshow"}>{running ? "Pause" : "Play"}<span aria-hidden="true">{running ? " Ⅱ" : " ▷"}</span></button>}
           <button type="button" className="carousel-button" aria-label="Previous founder slide" onClick={() => navigate("prev")}>←</button>

@@ -14,9 +14,9 @@ export const founderSlides: FounderSlide[] = [
   {
     id: "story", eyebrow: "01 / Her story", title: "Finding her way back to strength.",
     text: "After surviving gun violence and losing her leg, Kalisha Pettus fought to return to the gym. This news feature shares that part of her journey — the lived experience behind her commitment to helping other survivors heal.",
-    mediaType: "youtube", mediaSrc: "https://www.youtube-nocookie.com/embed/g0a5GG2ph_g",
+    mediaType: "youtube", mediaSrc: "https://www.youtube.com/embed/g0a5GG2ph_g?si=OT3xiDX-1GsB5bPo&start=400",
     alt: "News feature about Kalisha Pettus and her return to the gym",
-    caption: "CBS News Chicago · Plays muted · Sound available in player",
+    caption: "CBS News Chicago · Starting at 6:40 · Plays muted",
   },
   {
     id: "strength", eyebrow: "02 / Her strength", title: "Reclaiming strength, one movement at a time.",
@@ -27,9 +27,9 @@ export const founderSlides: FounderSlide[] = [
   },
   {
     id: "purpose", eyebrow: "03 / Her purpose", title: "Lived experience. A shared purpose.",
-    text: "Kalisha founded HealNThrive to build the comprehensive support system she believes survivors deserve. Her experience in fitness, food, and nutrition informs a commitment to physical, mental, and financial healing in Black and Brown communities.",
-    mediaType: "image", mediaSrc: "/media/founder/founder-portrait.webp",
-    alt: "Kalisha seated in a green blouse and white trousers for a professional portrait",
-    caption: "Kalisha Pettus · Founder, HealNThrive",
+    text: "Kalisha founded Heal & Thrive Chicago to build the comprehensive support system she believes survivors deserve. Her experience in fitness, food, and nutrition informs a commitment to physical, mental, and financial healing in Black and Brown communities.",
+    mediaType: "image", mediaSrc: "/media/founder/founder-headshot.webp",
+    alt: "Kalisha at the lakefront in a striped shirt, with her arms folded",
+    caption: "Kalisha Pettus · Founder, Heal & Thrive Chicago",
   },
 ];
