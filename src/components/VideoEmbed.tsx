@@ -24,7 +24,7 @@ export function VideoEmbed({ url, title, autoPlay = false }: VideoEmbedProps) {
         src={embedUrl.toString()}
         title={title}
         className="absolute inset-0 size-full border-0"
-        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+        allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
         loading={autoPlay ? "eager" : "lazy"}

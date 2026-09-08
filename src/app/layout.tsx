@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "@/app/globals.css";
 import { siteContent } from "@/data/siteContent";
+import { AnnouncementBanner } from "@/components/AnnouncementBanner";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <Navbar />
+        <AnnouncementBanner messages={siteContent.banner} />
         <main id="main-content">{children}</main>
         <Footer />
       </body>
