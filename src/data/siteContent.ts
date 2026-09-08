@@ -26,7 +26,7 @@ export const siteContent = {
     supportingText: "Have a question, partnership idea, or want to get involved? Reach out directly and we’ll get back to you.",
     email: "KalishaPettus@healandthrivechicago.org",
     emailSubject: "HealNThrive Website Inquiry",
-    emailLabel: "Email HealNThrive",
+    emailLabel: "Email Heal and Thrive Chicago",
   },
   donation: {
     eyebrow: "Be part of the healing",
